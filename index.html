@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//not finished yet--to finish follow the following?
+//ideas to continue push everything so far into an array,
+//then make loop that uses digitsArray(1-9)+ "hundred" + masterArray(1-99)
+//will avoid if statements which is neat
+let singleArray = ["zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourtneen","fifteen","sixteen","seventeen","eighteen","ninteen"]
+let tensArray = ["ten","twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+let digitsArray = ["","one","two","three","four","five","six","seven","eight","nine"];
+
+
+displaySingles()
+function displaySingles(){
+    for(i = 0; i < singleArray.length; i++){
+        let div1 = document.createElement("div")
+        document.body.appendChild(div1)
+        let answer = document.createTextNode(singleArray[i] + " ")
+        div1.appendChild(answer)
+    }
+}
+toHundred()
+function toHundred(){
+let output = ""
+    for(let i = 1; i < tensArray.length; i++){
+        
+        for(let j = 0; j < digitsArray.length; j++){
+        output = tensArray[i] + "-" + digitsArray[j]
+
+        let div1 = document.createElement("div");
+        document.body.appendChild(div1);
+       
+        let answer = document.createTextNode(output+ " ");
+        div1.appendChild(answer)
+        }
+    }     
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
