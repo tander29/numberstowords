@@ -12,10 +12,11 @@
 //ideas to continue push everything so far into an array,
 //then make loop that uses digitsArray(1-9)+ "hundred" + masterArray(1-99)
 //will avoid if statements which is neat
-let singleArray = ["zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourtneen","fifteen","sixteen","seventeen","eighteen","ninteen"]
+let singleArray = ["one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourtneen","fifteen","sixteen","seventeen","eighteen","ninteen"]
 let tensArray = ["ten","twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
 let digitsArray = ["","one","two","three","four","five","six","seven","eight","nine"];
-
+let hundredsArray =["", "one hundred", "two hundred", "three hundred", "four hundred", "five hundred", "six hundred", "seven hundred", "eight hundred", "nine hundred"]
+let magicArray = []
 
 displaySingles()
 function displaySingles(){
@@ -24,6 +25,7 @@ function displaySingles(){
         document.body.appendChild(div1)
         let answer = document.createTextNode(singleArray[i] + " ")
         div1.appendChild(answer)
+        magicArray.push(singleArray[i])
     }
 }
 toHundred()
@@ -33,19 +35,53 @@ let output = ""
         
         for(let j = 0; j < digitsArray.length; j++){
         output = tensArray[i] + "-" + digitsArray[j]
+        magicArray.push(output)
 
         let div1 = document.createElement("div");
         document.body.appendChild(div1);
        
         let answer = document.createTextNode(output+ " ");
         div1.appendChild(answer)
+        
         }
     }     
  }
 
 
+function thousand(input){
+    let output = digitsArray[input]+ "hundred"
+                let div1 = document.createElement("div");
+                document.body.appendChild(div1);
+                let first = document.createTextNode(digitsArray[input] + " hundred")
+                div1.appendChild(first)
 
+             for(let j =0; j < magicArray.length; j++){
+                        output = hundredsArray[input]+ " " + magicArray[j]
+                        
+                        let div1 = document.createElement("div");
+                        document.body.appendChild(div1);
+            
+                        let answer = document.createTextNode(output+ " ");
+                        div1.appendChild(answer)
 
+                    }
+    
+
+}
+
+//could put thousand() in array, and cycle through 10 times to save space?
+//feel like this could have been a lot shorter if I used conditional statements
+//feel like this is a cop out answer, but it works?  so that is nice i guess
+//if using an input, i.e function(x), could add conditional stuff depending on the input number
+thousand(1)
+thousand(2)
+thousand(3)
+thousand(4)
+thousand(5)
+thousand(6)
+thousand(7)
+thousand(8)
+thousand(9)
 
 
 
